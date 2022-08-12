@@ -1,6 +1,6 @@
 <template>
   <div>
-    日志管理
+    日志管理1
   </div>
 </template>
 
