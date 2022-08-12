@@ -1,27 +1,20 @@
 <template>
   <div>
     用户列表
+    <div>这是manage分支</div>
   </div>
 </template>
 
 <script>
 export default {
-  data () {
-    return {
-
-    }
+  data() {
+    return {};
   },
 
-  created () {
+  created() {},
 
-  },
-
-  methods: {
-
-  }
-}
+  methods: {},
+};
 </script>
 
-<style scoped lang='less'>
-
-</style>
+<style scoped lang="less"></style>
