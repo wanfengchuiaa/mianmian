@@ -3922,3 +3922,13 @@ export const citys = (pname) => {
   }
   return []
 }
+export const state = [
+  {
+    type: 0,
+    value: '禁用'
+  },
+  {
+    type: 1,
+    value: '启用'
+  }
+]
