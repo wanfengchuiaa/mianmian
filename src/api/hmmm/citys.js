@@ -3932,3 +3932,13 @@ export const state = [
     value: '启用'
   }
 ]
+export const statearticles = [
+  {
+    type: 0,
+    value: '已禁用'
+  },
+  {
+    type: 1,
+    value: '已启用'
+  }
+]
