@@ -4,24 +4,31 @@
       <el-form ref="Lists" :inline="true" :model="List">
         <el-row type="flex">
 
-          <el-form-item label="关键字">
-            <el-input v-model="List.keyword" placeholder="根据文章标题搜索"></el-input>
-          </el-form-item>
+          <el-col :span="5" style="display:flex;">
+            <el-form-item label="关键字">
+              <el-input style="width: 100%" v-model="List.keyword" placeholder="根据文章标题搜索"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="5">
+            <el-form-item label="状态">
+              <el-select v-model="List.state" placeholder="请选择" style="width: 100%">
+                <el-option label="启用" value="1"></el-option>
+                <el-option label="停用" value="0"></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="3">
+            <el-form-item>
+              <el-button size="small" @click="resetForm">消除</el-button>
+              <el-button size="small" type="primary" @click="getList">搜索</el-button>
+            </el-form-item>
+          </el-col>
 
-          <el-form-item label="状态">
-            <el-select v-model="List.state" placeholder="请选择" style="width: 94%;">
-              <el-option label="启用" value="1"></el-option>
-              <el-option label="停用" value="0"></el-option>
-            </el-select>
-          </el-form-item>
-
-          <el-form-item>
-            <el-button size="small" @click="resetForm">消除</el-button>
-            <el-button size="small" type="primary" @click="getList">搜索</el-button>
-          </el-form-item>
-          <el-form-item style="margin-left: 400px">
-            <el-button icon="el-icon-edit" size="small" type="success" @click="Looklook({},1)">新增用户</el-button>
-          </el-form-item>
+          <el-col :span="11" style="display:flex;justify-content: end">
+            <el-form-item>
+              <el-button icon="el-icon-edit" size="small" type="success" @click="Looklook({},1)">新增用户</el-button>
+            </el-form-item>
+          </el-col>
         </el-row>
       </el-form>
       <el-alert

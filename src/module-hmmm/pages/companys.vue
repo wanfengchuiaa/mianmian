@@ -66,12 +66,14 @@
         <el-table-column :formatter="formatterState" label="状态" prop="state"></el-table-column>
         <el-table-column label="操作" prop="shortName">
           <template slot-scope="scope">
-            <el-button circle icon="el-icon-edit" plain type="primary" @click="handleClick(scope.row)"></el-button>
-            <el-button :icon="scope.row.state===0?'el-icon-check':'el-icon-close'"
+            <el-button size="mini" circle icon="el-icon-edit" plain type="primary"
+                       @click="handleClick(scope.row)"></el-button>
+            <el-button size="mini" :icon="scope.row.state===0?'el-icon-check':'el-icon-close'"
                        :type="scope.row.state===0?'success':'warning'"
                        circle plain
                        @click="chengeState(scope.row)"></el-button>
-            <el-button circle icon="el-icon-delete" plain type="danger" @click="del(scope.row.id)"></el-button>
+            <el-button size="mini" circle icon="el-icon-delete" plain type="danger"
+                       @click="del(scope.row.id)"></el-button>
           </template>
         </el-table-column>
       </el-table>

@@ -2,33 +2,36 @@
   <div class='container'>
     <el-card>
       <el-form ref="Lists" :inline="true" :model="obj">
-        <el-row type="flex">
-
-          <el-form-item label="目录名称">
-            <el-input v-model="obj.directoryName" placeholder=""></el-input>
+        <el-row type="flex" justify="end">
+          <el-col>
+            <el-form-item label="目录名称">
+            <el-input style="width: 100%" v-model="obj.directoryName" placeholder=""></el-input>
           </el-form-item>
+            <el-form-item label="状态">
+              <el-select v-model="obj.state" clearable placeholder="请选择" style="width: 100%">
+                <el-option
+                  label="启用"
+                  :value="1">
+                </el-option>
+                <el-option
+                  label="启用"
+                  :value="0">
+                </el-option>
+              </el-select>
+            </el-form-item>
+            <el-form-item>
+              <el-button size="small" @click="resetForm">消除</el-button>
+              <el-button size="small" type="primary" @click="list">搜索</el-button>
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item style="display:flex;justify-content: end">
+              <el-button icon="el-icon-edit" size="small" type="success" @click="EditSubjects">新增用户</el-button>
+            </el-form-item>
+          </el-col>
 
-          <el-form-item label="状态">
-            <el-select v-model="obj.state" clearable placeholder="请选择">
-              <el-option
-                label="启用"
-                :value="1">
-              </el-option>
-              <el-option
-                label="启用"
-                :value="0">
-              </el-option>
-            </el-select>
-          </el-form-item>
 
-          <el-form-item>
-            <el-button size="small" @click="resetForm">消除</el-button>
-            <el-button size="small" type="primary" @click="list">搜索</el-button>
-          </el-form-item>
 
-          <el-form-item style="margin-left: 650px">
-            <el-button icon="el-icon-edit" size="small" type="success" @click="EditSubjects">新增用户</el-button>
-          </el-form-item>
 
         </el-row>
       </el-form>

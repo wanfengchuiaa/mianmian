@@ -2,13 +2,13 @@
   <div class='container'>
     <el-card style="margin: 25px 16px;">
       <el-form ref="form" :model="formdata" label-width="80px">
-        <el-row style="display:flex;">
-          <el-col :span="8" style="margin-right: 60%">
+        <el-row justify="space-between" type="flex">
+          <el-col :span="8" justify="space-between" type="flex">
             <el-form-item label="关键字">
               <el-input style="width: 400px" v-model="formdata.text"></el-input>
             </el-form-item>
           </el-col>
-          <el-col>
+          <el-col justify="end" type="flex">
             <el-button size="small" @click="qingchu">清除</el-button>
             <el-button size="small" type="primary" @click="sousuo">搜索</el-button>
           </el-col>

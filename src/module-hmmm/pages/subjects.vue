@@ -1,21 +1,25 @@
 <template>
   <div class='container'>
     <el-card>
-      <el-form ref="Lists" :inline="true" :model="List">
+      <el-form ref="Lists"  :model="List" label-width="80px">
         <el-row type="flex">
+<el-col :span="8" style="display: flex">
+  <el-form-item label="学科名称">
+    <el-input style="width: 100%" v-model="List.subjectName" placeholder="根据文章标题搜索"></el-input>
+  </el-form-item>
+</el-col>
+          <el-col>
+            <el-form-item>
+              <el-button size="small" @click="resetForm">消除</el-button>
+              <el-button size="small" type="primary" @click="getList">搜索</el-button>
+            </el-form-item>
+          </el-col>
+          <el-col style="display:flex;justify-content: end">
+            <el-form-item style="">
+              <el-button icon="el-icon-edit" size="small" type="success" @click="EditSubjects({})">新增用户</el-button>
+            </el-form-item>
+          </el-col>
 
-          <el-form-item label="学科名称">
-            <el-input v-model="List.subjectName" placeholder="根据文章标题搜索"></el-input>
-          </el-form-item>
-
-          <el-form-item>
-            <el-button size="small" @click="resetForm">消除</el-button>
-            <el-button size="small" type="primary" @click="getList">搜索</el-button>
-          </el-form-item>
-
-          <el-form-item style="margin-left: 650px">
-            <el-button icon="el-icon-edit" size="small" type="success" @click="EditSubjects({})">新增用户</el-button>
-          </el-form-item>
 
         </el-row>
       </el-form>
