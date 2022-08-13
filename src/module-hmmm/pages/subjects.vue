@@ -28,15 +28,15 @@
         :data="tableData"
         style="width: 100%">
         <el-table-column label="序号" type="index" width="80"></el-table-column>
-        <el-table-column label="学科名称" prop="subjectName" width="100"></el-table-column>
-        <el-table-column label="创建者" prop="username" width="120"></el-table-column>
-        <el-table-column label="创建日期" :formatter="dateFormat" prop="addDate" width="150"></el-table-column>
+        <el-table-column label="学科名称" prop="subjectName"></el-table-column>
+        <el-table-column label="创建者" prop="username"></el-table-column>
+        <el-table-column label="创建日期" :formatter="dateFormat" prop="addDate"></el-table-column>
         <el-table-column label="前台是否显示" :formatter="formatterSubject" prop="isFrontDisplay"
                          width="120"></el-table-column>
-        <el-table-column label="二级目录" prop="twoLevelDirectory" width="120"></el-table-column>
-        <el-table-column label="标签" prop="tags" width="120"></el-table-column>
-        <el-table-column label="题目数量" prop="totals" width="120"></el-table-column>
-        <el-table-column label="操作" prop="shortName" width="250">
+        <el-table-column label="二级目录" prop="twoLevelDirectory"></el-table-column>
+        <el-table-column label="标签" prop="tags" ></el-table-column>
+        <el-table-column label="题目数量" prop="totals"></el-table-column>
+        <el-table-column label="操作" prop="shortName" width="280">
           <template slot-scope="scope">
             <el-button type="text" size="small">学科分类</el-button>
             <el-button type="text" size="small">学科标签</el-button>
