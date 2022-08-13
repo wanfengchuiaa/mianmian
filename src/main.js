@@ -11,6 +11,7 @@ import './icons' // icon
 import './errorLog' // error log
 import * as filters from './filters' // global filters
 import './mock' // simulation data
+import '@wangeditor/editor/dist/css/style.css'
 // font-awesome
 import 'font-awesome/css/font-awesome.css'
 /*
@@ -34,10 +35,10 @@ Vue.use(hmmm, store)
 // 饿了么
 Vue.use(Element, {
   size: 'medium', // set element-ui default size
-  i18n: (key, value) => i18n.t(key, value)
+  i18n: (key, value) => i18n.t(key, value),
 })
 // 过滤器
-Object.keys(filters).forEach(key => {
+Object.keys(filters).forEach((key) => {
   Vue.filter(key, filters[key])
 })
 
@@ -49,5 +50,5 @@ new Vue({
   router,
   store,
   i18n,
-  render: h => h(App)
+  render: (h) => h(App),
 })
