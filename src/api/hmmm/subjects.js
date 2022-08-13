@@ -19,6 +19,15 @@ export const simple1111 = (data) => createAPI('/subjects/simple', 'get', data)
 // 学科详情
 export const detail = (data) => createAPI(`/subjects/${data.id}`, 'get', data)
 
+// addDate: '2022-08-13T04:22:38.000Z'
+// creatorID: 2
+// id: 30
+// isFrontDisplay: 1
+// subjectName: '7722玩玩'
+// tags: 1
+// totals: 0
+// twoLevelDirectory: 0
+// username: '超级管理员'
 // 学科添加
 export const add = (data) => createAPI('/subjects', 'post', data)
 

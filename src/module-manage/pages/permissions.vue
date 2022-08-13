@@ -37,7 +37,6 @@
         <template slot-scope="scope">{{ scope.row.update_date }}</template>
       </el-table-column>
 
-      fixed="right"
       <el-table-column
         label="操作"
         width="120"

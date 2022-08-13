@@ -58,12 +58,12 @@
         style="width: 100%">
         <el-table-column label="序号" prop="id" width="80"></el-table-column>
         <el-table-column label="企业编号" prop="number"></el-table-column>
-        <el-table-column label="企业简称" prop="shortName" ></el-table-column>
-        <el-table-column label="标签" prop="tags" ></el-table-column>
-        <el-table-column label="创建者" prop="creatorID" ></el-table-column>
+        <el-table-column label="企业简称" prop="shortName"></el-table-column>
+        <el-table-column label="标签" prop="tags"></el-table-column>
+        <el-table-column label="创建者" prop="creatorID"></el-table-column>
         <el-table-column :formatter="dateFormat" label="创建日期" prop="addDate"></el-table-column>
         <el-table-column label="备注" prop="remarks"></el-table-column>
-        <el-table-column :formatter="formatterState" label="状态" prop="state" ></el-table-column>
+        <el-table-column :formatter="formatterState" label="状态" prop="state"></el-table-column>
         <el-table-column label="操作" prop="shortName">
           <template slot-scope="scope">
             <el-button circle icon="el-icon-edit" plain type="primary" @click="handleClick(scope.row)"></el-button>
