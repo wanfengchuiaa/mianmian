@@ -126,8 +126,24 @@
           </el-row>
         </el-form-item>
         <el-form-item>
-          <el-button>zeng</el-button>
+          <el-button type="danger" size="small">+增加选项与答案</el-button>
         </el-form-item>
+        <el-form-item label="解析视频:">
+          <el-input style="width: 300px"></el-input>
+        </el-form-item>
+
+        <!-- <el-form-item label="答案解析:">
+          <div style="border: 1px solid #ccc">
+            <Toolbar style="border-bottom: 1px solid #ccc" :editor="editor" :defaultConfig="toolbarConfig" :mode="mode" />
+            <Editor
+              style="height: 200px; overflow-y: hidden"
+              v-model="html"
+              :defaultConfig="editorConfig"
+              :mode="mode"
+              @onCreated="onCreated"
+            />
+          </div>
+        </el-form-item> -->
       </el-form>
     </el-card>
   </div>
