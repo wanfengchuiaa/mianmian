@@ -33,10 +33,10 @@
           :label="$t('table.permissionUser')"
           prop="permission_group_id"
         >
-          <el-select class="filter-item" v-model="formBase.permission_group_id">
+          <el-select class="filter-item" v-model="value">
             <el-option
-              v-for="item in qxTitle"
-              :value="item.id"
+              v-for="item in powerList"
+              :value="item.permission_group_title"
               :key="item.key"
               :label="item.title"
             ></el-option>
@@ -108,7 +108,12 @@ export default {
         ],
       },
       List: [],
+      powerList: [],
+      value: "",
     };
+  },
+  created() {
+    this.simple();
   },
   methods: {
     // 弹层显示
@@ -130,18 +135,32 @@ export default {
       };
     },
 
+    async simple() {
+      const res = await simple();
+      console.log(res.data);
+      this.powerList = res.data;
+    },
+
     // 编辑
     async editData() {
-      if (this.userId) {
-        this.formBase = this.userId;
-      }
+      // console.log(this.userId);
+      const res = await detail(this.userId);
+      console.log(res);
+      // console.log(this.qxTitle);
+
+      this.formBase = res.data;
+
       this.dialogFormVisible = true;
     },
 
     // 表单提交
     async createData() {
-      await add(this.formBase);
-      this.$message.success("新增用户成功");
+      if (this.userId) {
+        await update(this.formBase);
+      } else {
+        await add(this.formBase);
+        this.$message.success("新增用户成功");
+      }
     },
   },
 };
