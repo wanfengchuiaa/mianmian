@@ -3942,3 +3942,13 @@ export const statearticles = [
     value: '已启用'
   }
 ]
+export const statesubject = [
+  {
+    type: 0,
+    value: '否'
+  },
+  {
+    type: 1,
+    value: '是'
+  }
+]
