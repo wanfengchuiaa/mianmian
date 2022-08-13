@@ -169,7 +169,13 @@
           <template v-slot="{row}">
             <el-button class="button1" size="small" type="success" icon="el-icon-view" circle
                        @click="yanlan(row)"></el-button>
-            <el-button class="button2" size="small" type="info" icon="el-icon-edit" circle></el-button>
+            <el-button class="button2" size="small" type="info" icon="el-icon-edit" circle
+                       @click="$router.push({
+            path:'new',
+            query:{
+             id:row.id
+            }
+            })"></el-button>
             <el-button class="button3" type="warning" size="small" icon="el-icon-delete" circle
                        @click="remove(row)"></el-button>
             <el-button class="button4" type="danger" size="small" icon="el-icon-check" circle
@@ -287,6 +293,7 @@ export default {
       })
       await remove(row)
       this.$message.success('删除成功')
+      await this.list()
     },
     handleSizeChange (i) {
       this.ruleForm.pagesize = i

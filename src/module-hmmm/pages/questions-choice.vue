@@ -209,7 +209,13 @@
           <template v-slot="{row}">
             <el-button size="mini" type="text" @click="preview(row)">预览</el-button>
             <el-button size="mini" type="text" @click="shenhe(row)" :disabled="row.chkState!==0">审核</el-button>
-            <el-button size="mini" type="text" :disabled="row.chkState===1">修改</el-button>
+            <el-button size="mini" type="text" :disabled="row.chkState===1" @click="$router.push({
+            path:'new',
+            query:{
+            id:row.id
+            }
+            })">修改
+            </el-button>
             <el-button size="mini" type="text" @click="open(row)">{{ row.publishState === 1 ? '上架' : '下架' }}
             </el-button>
             <el-button size="mini" type="text" :disabled="row.chkState===1" @click="remove(row)">删除</el-button>
