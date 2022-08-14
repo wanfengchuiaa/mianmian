@@ -197,6 +197,7 @@ export default {
       this.dialogFormH()
       this.handleResetForm()
       this.setupData()
+      this.$emit('get-list')
     },
     nodeDate (nodesPath, curPermissions, findId) {
       nodesPath.map(function (item, index) {

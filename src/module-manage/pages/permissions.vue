@@ -2,19 +2,24 @@
   <el-card class="cardContent">
     <el-row>
       <el-col :span="21"
-        ><el-input
+      >
+        <el-input
           v-model="input"
           placeholder="请输入内容"
           style="width: 200px; margin-right: 10px"
         ></el-input>
         <el-button @click="clear">清除</el-button>
-        <el-button type="primary" @click="list">搜索</el-button></el-col
+        <el-button type="primary" @click="list">搜索</el-button>
+      </el-col
       >
       <el-col :span="3">
         <el-button type="success" icon="el-icon-edit" @click="addPermission"
-          >新增权限组</el-button
-        ></el-col
-      ></el-row
+        >新增权限组
+        </el-button
+        >
+      </el-col
+      >
+    </el-row
     >
     <el-alert
       style="margin-top: 20px"
@@ -30,18 +35,17 @@
       style="width: 100%"
       @selection-change="handleSelectionChange"
     >
-      <el-table-column type="selection" width="305"> </el-table-column>
-      <el-table-column prop="title" label="用户名" width="320">
+      <el-table-column type="selection" width="305"></el-table-column>
+      <el-table-column prop="title" label="用户名">
       </el-table-column>
-      <el-table-column label="日期" sortable width="300">
+      <el-table-column label="日期" sortable width="400">
         <template slot-scope="scope">{{ scope.row.update_date }}</template>
       </el-table-column>
 
       <el-table-column
         label="操作"
-        width="120"
+        width="220"
         header-align="center"
-        fixed="right"
       >
         <template v-slot="{ row }">
           <el-button
@@ -72,88 +76,95 @@
           :total="total"
           layout="total, sizes, prev, pager, next, jumper"
         >
-        </el-pagination></div
-    ></el-row>
-    <permissionsAdd ref="addper" :title="title" />
+        </el-pagination>
+      </div
+      >
+    </el-row>
+    <permissionsAdd @get-list="list" ref="addper" :title="title"/>
   </el-card>
 </template>
 
 <script>
-import permissionsAdd from "@/module-manage/components/permissions-add";
-import { list, remove } from "@/api/base/permissions";
+import permissionsAdd from '@/module-manage/components/permissions-add'
+import { list, remove } from '@/api/base/permissions'
+
 export default {
-  name: "permissions",
+  name: 'permissions',
   components: { permissionsAdd },
-  data() {
+  data () {
     return {
-      title: "",
+      title: '',
       dialogFormVisible: false,
-      input: "",
+      input: '',
       page: {
         page: 1,
         pageSize: 10,
-        keyword: 10,
+        keyword: 10
       },
       total: 10,
-      lists: [],
-    };
+      lists: []
+    }
   },
 
-  created() {
-    this.list();
+  created () {
+    this.list()
   },
 
   methods: {
-    clear() {
-      this.input = "";
-      this.list();
+    clear () {
+      this.input = ''
+      this.list()
     },
 
-    addPermission() {
-      this.title = "添加权限";
-      this.$refs.addper.dialogFormV();
+    addPermission () {
+      this.title = '添加权限'
+      this.$refs.addper.dialogFormV()
       // this.dialogFormVisible = true;
+      this.list()
     },
-    async list() {
-      const { data } = await list({ ...this.page, title: this.input });
-      this.lists = data.list;
+    async list () {
+      const { data } = await list({ ...this.page, title: this.input })
+      this.lists = data.list
       // console.log(this.lists);
     },
-    toggleSelection(rows) {
+    toggleSelection (rows) {
       if (rows) {
         rows.forEach((row) => {
-          this.$refs.multipleTable.toggleRowSelection(row);
-        });
+          this.$refs.multipleTable.toggleRowSelection(row)
+        })
       } else {
-        this.$refs.multipleTable.clearSelection();
+        this.$refs.multipleTable.clearSelection()
       }
     },
-    handleSelectionChange(val) {
-      this.multipleSelection = val;
+    handleSelectionChange (val) {
+      this.multipleSelection = val
+      this.list()
     },
-    handleSizeChange(val) {
+    handleSizeChange (val) {
       // console.log(`每页 ${val} 条`);
-      this.page.pageSize = val;
+      this.page.pageSize = val
+      this.list()
     },
-    handleCurrentChange(val) {
+    handleCurrentChange (val) {
       // console.log(`当前页: ${val}`);
-      this.page.pageSize = val;
-      this.list();
+      this.page.pageSize = val
+      this.list()
     },
-    async handleClick(id) {
-      this.title = "编辑权限";
-      this.$refs.addper.dialogFormV();
-      await this.$refs.addper.hanldeEditForm(id);
-      await this.$refs.addper.setupData();
+    async handleClick (id) {
+      this.title = '编辑权限'
+      this.$refs.addper.dialogFormV()
+      await this.$refs.addper.hanldeEditForm(id)
+      await this.$refs.addper.setupData()
+      await this.list()
     },
-    async delPermission(data) {
-      await this.$confirm("确定删除吗?");
-      await remove(data);
-      await this.$message.success("删除成功");
-      this.list();
-    },
-  },
-};
+    async delPermission (data) {
+      await this.$confirm('确定删除吗?')
+      await remove(data)
+      await this.$message.success('删除成功')
+      this.list()
+    }
+  }
+}
 </script>
 
 <style scoped lang="less">
@@ -161,14 +172,17 @@ export default {
   // width: 1320px;
   margin-left: 20px;
   margin-top: 20px;
+
   .el-table__body .el-table__cell {
     text-align: center;
   }
+
   .edit {
     color: #409eff;
     background: #ecf5ff;
     border-color: #b3d8ff;
   }
+
   .delete {
     color: #f56c6c;
     background: #fef0f0;
