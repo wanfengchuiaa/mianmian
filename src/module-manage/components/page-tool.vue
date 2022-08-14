@@ -1,37 +1,46 @@
 <template>
   <div class="pages">
-      <el-pagination background
-      @size-change="onPageSizeChange"
-      @current-change="onPageChange"
-      :current-page="Number(paginationPage)"
-      :total="Number(total)"
-      :page-size="Number(paginationPagesize)"
-      :page-sizes="[10,20,30, 50]"
-      layout="sizes, prev, pager, next, jumper"
-      >
-      </el-pagination>
+    <el-pagination
+      background
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+      :current-page="page"
+      :page-sizes="[10, 20, 30, 50]"
+      :page-size="pagesize"
+      :total="counts"
+      layout=" prev, pager, next,sizes, jumper"
+    >
+    </el-pagination>
   </div>
 </template>
 <script>
 export default {
-  name: 'PageTool',
-  props: ['total', 'paginationPage', 'paginationPagesize'],
-  data () {
-    return {
-    }
+  name: "PageTool",
+  props: [
+    "total",
+    "paginationPage",
+    "paginationPagesize",
+    "pagesize",
+    "page",
+    "counts",
+  ],
+  data() {
+    return {};
   },
   methods: {
-    // 进入某一页
-    onPageChange: function (pageNum) {
-      this.$emit('pageChange', pageNum)
+    handleSizeChange(val) {
+      this.pagesize = val;
+      console.log(`每页 ${val} 条`);
     },
-    // 每页显示信息条数
-    onPageSizeChange: function (pageSize) {
-      this.$emit('pageSizeChange', pageSize)
-    }
-  }
-}
+    handleCurrentChange(val) {
+      this.page = val;
+      console.log(`当前页: ${val}`);
+    },
+  },
+};
 </script>
 <style>
-.blue{color: #409EFF;}
+.blue {
+  color: #409eff;
+}
 </style>
