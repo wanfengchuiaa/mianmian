@@ -1,13 +1,13 @@
 <template>
   <div class='container'>
     <el-card>
-      <el-form ref="Lists"  :model="List" label-width="80px">
+      <el-form ref="Lists" :model="List" label-width="80px">
         <el-row type="flex">
-<el-col :span="8" style="display: flex">
-  <el-form-item label="学科名称">
-    <el-input style="width: 100%" v-model="List.subjectName" placeholder="根据文章标题搜索"></el-input>
-  </el-form-item>
-</el-col>
+          <el-col :span="8" style="display: flex">
+            <el-form-item label="学科名称">
+              <el-input style="width: 100%" v-model="List.subjectName" placeholder="根据文章标题搜索"></el-input>
+            </el-form-item>
+          </el-col>
           <el-col>
             <el-form-item>
               <el-button size="small" @click="resetForm">消除</el-button>
@@ -19,7 +19,6 @@
               <el-button icon="el-icon-edit" size="small" type="success" @click="EditSubjects({})">新增用户</el-button>
             </el-form-item>
           </el-col>
-
 
         </el-row>
       </el-form>
@@ -38,12 +37,12 @@
         <el-table-column label="前台是否显示" :formatter="formatterSubject" prop="isFrontDisplay"
                          width="120"></el-table-column>
         <el-table-column label="二级目录" prop="twoLevelDirectory"></el-table-column>
-        <el-table-column label="标签" prop="tags" ></el-table-column>
+        <el-table-column label="标签" prop="tags"></el-table-column>
         <el-table-column label="题目数量" prop="totals"></el-table-column>
         <el-table-column label="操作" prop="shortName" width="280">
           <template slot-scope="scope">
-            <el-button type="text" size="small">学科分类</el-button>
-            <el-button type="text" size="small">学科标签</el-button>
+            <el-button type="text" size="small" @click="$router.push('directorys')">学科分类</el-button>
+            <el-button type="text" size="small" @click="$router.push('tags')">学科标签</el-button>
             <el-button type="text" size="small" :disabled="scope.row.state === 1" @click="EditSubjects(scope.row)">修改
             </el-button>
             <el-button type="text" size="small" :disabled="scope.row.state === 1" @click="del(scope.row.id)">删除
