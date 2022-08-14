@@ -1,9 +1,5 @@
 <template>
   <div>
-<<<<<<< HEAD
-    用户列表
-    <div>这是manage分支</div>
-=======
     <el-card style="margin: 20px">
       <!-- ------------------- 搜索新增区域 ------------------- -->
       <el-row type="flex" justify="space-between">
@@ -15,13 +11,15 @@
             v-model="userName"
           ></el-input>
           <el-button size="small" style="margin-left: 15px" @click="clearSearch"
-            >清空</el-button
+          >清空
+          </el-button
           >
           <el-button size="small" type="primary" @click="tableData1"
-            >搜索</el-button
+          >搜索
+          </el-button
           >
         </el-col>
-        <el-col> </el-col>
+        <el-col></el-col>
         <el-row>
           <el-col>
             <el-button
@@ -29,7 +27,8 @@
               icon="el-icon-edit"
               type="success"
               @click="addUserDialog"
-              >新增用户</el-button
+            >新增用户
+            </el-button
             >
           </el-col>
         </el-row>
@@ -100,86 +99,71 @@
       :tableList="tableList"
       ref="addUser"
     ></usersAdd>
->>>>>>> users_zoubo_2022/8/12
   </div>
 </template>
 
 <script>
-import PageTool from "../components/page-tool.vue";
-import usersAdd from "../components/user-add.vue";
-import { profile } from "@/api/base/frame";
-import { list } from "@/api/base/users";
-import { simple } from "@/api/base/permissions";
-import { detail } from "@/api/base/users";
+import PageTool from '../components/page-tool.vue'
+import usersAdd from '../components/user-add.vue'
+import { list } from '@/api/base/users'
+import { simple } from '@/api/base/permissions'
+
 export default {
-<<<<<<< HEAD
-  data() {
-    return {};
-  },
 
-  created() {},
-
-  methods: {},
-=======
   components: {
     PageTool,
-    usersAdd,
+    usersAdd
   },
-  data() {
+  data () {
     return {
       formData: {},
       tableList: [],
-      userName: "",
+      userName: '',
       qxTitle: [],
       userId: {},
       page: 1,
       pagesize: 10,
-      counts: 0,
-    };
+      counts: 0
+    }
   },
 
-  created() {
-    this.tableData1();
+  created () {
+    this.tableData1()
   },
 
   methods: {
-    handleSizeChange(val) {
-      this.pagesize = val;
-      this.tableData1();
+    handleSizeChange (val) {
+      this.pagesize = val
+      this.tableData1()
     },
-    handleCurrentChange(val) {
-      this.page = val;
-      this.tableData1();
+    handleCurrentChange (val) {
+      this.page = val
+      this.tableData1()
     },
-    // >>>-------------------> 清空搜索框 <-------------------<<<
-    clearSearch() {
-      this.userName = "";
-      this.tableData1();
+    clearSearch () {
+      this.userName = ''
+      this.tableData1()
     },
-    // >>>-------------------> 编辑 <-------------------<<<
-    async handleEdit(data) {
-      this.userId = data;
-      this.$refs.addUser.editData();
+    async handleEdit (data) {
+      this.userId = data
+      this.$refs.addUser.editData()
     },
-    // >>>-------------------> 获取表格数据 <-------------------<<<
-    async tableData1() {
+    async tableData1 () {
       const res = await list({
         username: this.userName,
         page: this.page,
-        pagesize: this.pagesize,
-      });
-      this.counts = res.data.counts;
-      this.tableList = res.data.list;
+        pagesize: this.pagesize
+      })
+      this.counts = res.data.counts
+      this.tableList = res.data.list
     },
-    // >>>-------------------> 新增 <-------------------<<<
-    async addUserDialog() {
-      const res = await simple();
-      this.qxTitle = res.data;
-      this.$refs.addUser.dialogFormV();
-    },
-  },
->>>>>>> users_zoubo_2022/8/12
-};
+    async addUserDialog () {
+      const res = await simple()
+      this.qxTitle = res.data
+      this.$refs.addUser.dialogFormV()
+    }
+  }
+}
 </script>
 
 <style scoped lang="less"></style>

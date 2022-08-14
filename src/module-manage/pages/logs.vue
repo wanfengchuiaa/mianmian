@@ -1,7 +1,7 @@
 <template>
   <el-card class="cardContent">
     <el-alert
-      style="margin-top: 10px 20px 0"
+      style="margin: 10px 20px 0"
       :title="`共${total}条记录`"
       type="info"
       show-icon
@@ -9,23 +9,21 @@
     >
     </el-alert>
     <el-table
-      :header-cell-style="{
-        'border-bottom': '2px solid #e8e8e8',
-        background: '#FaFaFa',
-      }"
+      :header-cell-style="{'text-align': 'center','border-bottom':'2px solid #e8e8e8',  'background': '#FaFaFa'}"
+      :cell-style="{'text-align': 'center'}"
       :data="tableData"
       style="width: 100%; margin-top: 10px"
       :loading="loading"
     >
-      <el-table-column fixed prop="type" label="操作类型" width="240">
+      <el-table-column fixed prop="type" label="操作类型">
       </el-table-column>
-      <el-table-column prop="name" label="操作人" width="240">
+      <el-table-column prop="name" label="操作人">
       </el-table-column>
-      <el-table-column prop="result" label="执行结果" width="280">
+      <el-table-column prop="result" label="执行结果">
       </el-table-column>
-      <el-table-column prop="data" label="操作时间" width="240">
+      <el-table-column prop="data" label="操作时间">
       </el-table-column>
-      <el-table-column prop="disprice" label="描述" width="240">
+      <el-table-column prop="disprice" label="描述">
       </el-table-column>
     </el-table>
     <el-row type="flex" justify="end">
@@ -40,104 +38,105 @@
           :total="total"
           layout="  prev, pager, next ,sizes,jumper"
         >
-        </el-pagination></div
-    ></el-row>
+        </el-pagination>
+      </div
+      >
+    </el-row>
   </el-card>
 </template>
 
 <script>
-import permissionsAdd from "@/module-manage/components/permissions-add";
-import { list, remove } from "@/api/base/permissions";
+
 export default {
-  name: "permissions",
-  components: { permissionsAdd },
-  data() {
+  name: 'permissions',
+
+  data () {
     return {
       loading: false,
       page: {
         page: 1,
         pageSize: 10,
-        keyword: 10,
+        keyword: 10
       },
       total: 100,
       tableData: [
         {
-          type: "us",
-          name: "曹霞",
-          result: "必持标包质好内么器复交看持厂确却计造好",
-          data: "普陀区",
-          address: "1988-02-29 07:34:49",
-          disprice: "20.38",
+          type: 'us',
+          name: '曹霞',
+          result: '必持标包质好内么器复交看持厂确却计造好',
+          data: '普陀区',
+          address: '1988-02-29 07:34:49',
+          disprice: '20.38'
         },
         {
-          type: "us",
-          name: "胡霞",
-          result: "必持标包质好内么器复交看持厂确却计造好",
-          data: "普陀区",
-          address: "1988-02-29 07:34:49",
-          disprice: "20.38",
+          type: 'us',
+          name: '胡霞',
+          result: '必持标包质好内么器复交看持厂确却计造好',
+          data: '普陀区',
+          address: '1988-02-29 07:34:49',
+          disprice: '20.38'
         },
         {
-          type: "us",
-          name: "彦军",
-          result: "必持标包质好内么器复交看持厂确却计造好",
-          data: "普陀区",
-          address: "1988-02-29 07:34:49",
-          disprice: "20.38",
+          type: 'us',
+          name: '彦军',
+          result: '必持标包质好内么器复交看持厂确却计造好',
+          data: '普陀区',
+          address: '1988-02-29 07:34:49',
+          disprice: '20.38'
         },
         {
-          type: "us",
-          name: "赵杰",
-          result: "必持标包质好内么器复交看持厂确却计造好",
-          data: "普陀区",
-          address: "1988-02-29 07:34:49",
-          disprice: "20.38",
+          type: 'us',
+          name: '赵杰',
+          result: '必持标包质好内么器复交看持厂确却计造好',
+          data: '普陀区',
+          address: '1988-02-29 07:34:49',
+          disprice: '20.38'
         },
         {
-          type: "us",
-          name: "秦娜",
-          result: "必持标包质好内么器复交看持厂确却计造好",
-          data: "普陀区",
-          address: "1988-02-29 07:34:49",
-          disprice: "20.38",
+          type: 'us',
+          name: '秦娜',
+          result: '必持标包质好内么器复交看持厂确却计造好',
+          data: '普陀区',
+          address: '1988-02-29 07:34:49',
+          disprice: '20.38'
         },
         {
-          type: "us",
-          name: "胡洋",
-          result: "必持标包质好内么器复交看持厂确却计造好",
-          data: "普陀区",
-          address: "1988-02-29 07:34:49",
-          disprice: "20.38",
+          type: 'us',
+          name: '胡洋',
+          result: '必持标包质好内么器复交看持厂确却计造好',
+          data: '普陀区',
+          address: '1988-02-29 07:34:49',
+          disprice: '20.38'
         },
         {
-          type: "us",
-          name: "嘉敏",
-          result: "必持标包质好内么器复交看持厂确却计造好",
-          data: "普陀区",
-          address: "1988-02-29 07:34:49",
-          disprice: "20.38",
+          type: 'us',
+          name: '嘉敏',
+          result: '必持标包质好内么器复交看持厂确却计造好',
+          data: '普陀区',
+          address: '1988-02-29 07:34:49',
+          disprice: '20.38'
         },
         {
-          type: "us",
-          name: "徐刚",
-          result: "必持标包质好内么器复交看持厂确却计造好",
-          data: "普陀区",
-          address: "1988-02-29 07:34:49",
-          disprice: "20.38",
-        },
-      ],
-    };
+          type: 'us',
+          name: '徐刚',
+          result: '必持标包质好内么器复交看持厂确却计造好',
+          data: '普陀区',
+          address: '1988-02-29 07:34:49',
+          disprice: '20.38'
+        }
+      ]
+    }
   },
   methods: {
-    handleCurrentChange(value) {
-      this.loading = true;
-      this.page.page = value;
+    handleCurrentChange (value) {
+      this.loading = true
+      this.page.page = value
     },
-    handleSizeChange(value) {
-      this.page.pageSize = value;
-    },
-  },
-};
+    handleSizeChange (value) {
+      this.page.pageSize = value
+    }
+  }
+}
 </script>
 
 <style scoped lang="less">
@@ -146,14 +145,17 @@ export default {
   margin-left: 20px;
   margin-right: 10px;
   margin-top: 20px;
+
   .el-table__body .el-table__cell {
     text-align: center;
   }
+
   .edit {
     color: #409eff;
     background: #ecf5ff;
     border-color: #b3d8ff;
   }
+
   .delete {
     color: #f56c6c;
     background: #fef0f0;
